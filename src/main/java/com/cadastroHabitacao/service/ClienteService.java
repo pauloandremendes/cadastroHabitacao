@@ -1,0 +1,34 @@
+package com.cadastroHabitacao.service;
+
+import com.cadastroHabitacao.model.domain.Cliente;
+import com.cadastroHabitacao.repository.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ClienteService {
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    public Cliente salvar(final Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
+
+
+    public List<Cliente> listar() {
+        List<Cliente> centros = clienteRepository.findAll();
+        return centros;
+    }
+
+    public Cliente editar(final Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
+
+    public void excluir(final Long id) {
+        clienteRepository.deleteById(id);
+    }
+
+}
